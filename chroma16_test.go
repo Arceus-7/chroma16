@@ -18,13 +18,13 @@ func TestParseHex(t *testing.T) {
 		wantErr bool
 	}{
 		{"#FF6B35", 255, 107, 53, false},
-		{"FF6B35", 255, 107, 53, false},  // without leading #
+		{"FF6B35", 255, 107, 53, false}, // without leading #
 		{"#000000", 0, 0, 0, false},
 		{"#FFFFFF", 255, 255, 255, false},
-		{"#ff0000", 255, 0, 0, false}, // lowercase
-		{"#GG0000", 0, 0, 0, true},   // invalid hex char
-		{"#FF00", 0, 0, 0, true},     // too short
-		{"", 0, 0, 0, true},          // empty
+		{"#ff0000", 255, 0, 0, false},  // lowercase
+		{"#GG0000", 0, 0, 0, true},     // invalid hex char
+		{"#FF00", 0, 0, 0, true},       // too short
+		{"", 0, 0, 0, true},            // empty
 		{"notacolor12", 0, 0, 0, true}, // wrong length even without #
 	}
 
