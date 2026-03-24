@@ -10,7 +10,7 @@ Generate a complete, harmonious 16-color terminal palette from a single seed val
 ## Install
 
 ```bash
-go get github.com/Arceus-7/chroma16
+go get github.com/arceus-7/chroma16
 ```
 
 ---
@@ -18,7 +18,7 @@ go get github.com/Arceus-7/chroma16
 ## Quick Start
 
 ```go
-import "github.com/Arceus-7/chroma16"
+import "github.com/arceus-7/chroma16"
 
 palette, err := chroma16.From("#FF6B35")
 if err != nil {
