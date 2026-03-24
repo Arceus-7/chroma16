@@ -130,6 +130,8 @@ Colors are indexed to match the standard 16-color terminal palette:
 |----------------------|------------------|------------------------------------------------|
 | `From(seed string)`  | `Palette, error` | One-liner palette from a seed                  |
 | `New()`              | `*Builder`       | Create a Builder for a customized palette      |
+| `Blend(p1, p2, t)`   | `Palette`        | Interpolate two palettes (t is 0 to 1)         |
+| `FromJSON(data)`     | `Palette, error` | Restore a palette from JSON bytes              |
 
 ### Palette Methods
 
@@ -140,6 +142,14 @@ Colors are indexed to match the standard 16-color terminal palette:
 | `RGB()`      | `[][3]uint8`   | 16 raw `[R, G, B]` triples                             |
 | `At(i int)`  | `string, error`| Hex string for slot `i`; error if `i` outside [0,15]  |
 | `Preview()`  | —              | Prints a color swatch to stdout                        |
+| `Complement()`| `Palette`     | Returns a new palette with opposite hues               |
+| `Analogous(d)`| `Palette`     | Returns a new palette with hues shifted by `d` degrees |
+| `ToAlacritty()`| `string`     | Returns an Alacritty TOML colors block                 |
+| `ToKitty()`   | `string`      | Returns a Kitty `.conf` text block                     |
+| `ToWindowsTerminal(n)`| `string` | Returns a JSON block for Windows Terminal          |
+| `ToXresources()`| `string`    | Returns an Xresources colors block                     |
+| `MarshalJSON()`| `[]byte, err`| Serializes palette to JSON                             |
+| `ToLipglossTheme()`| `LipglossTheme` | Available when built with `-tags lipgloss`      |
 
 ### Builder Methods
 

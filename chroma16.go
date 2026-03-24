@@ -6,10 +6,11 @@ import "strings"
 //
 // The seed can be:
 //   - A hex color string: "#FF6B35" or "FF6B35"
-//   - Any other string:   deterministically hashed to a hex color
+//   - A CSS named color:  "crimson", "steelblue", "gold", etc. (148 names)
+//   - Any other string:   deterministically hashed to a hex color via FNV-1a
 //
-// Returns an error only when the seed looks like a hex color (starts with "#"
-// or is exactly 6 characters) but contains invalid hex characters.
+// Returns an error only when the seed starts with "#" or is a bare 6-char
+// all-hex string but contains invalid hex characters.
 func From(seed string) (Palette, error) {
 	hex, err := resolveHex(seed)
 	if err != nil {
@@ -38,13 +39,11 @@ func New() *Builder {
 
 // resolveHex returns a valid "#RRGGBB" hex string from seed.
 //
-// Disambiguation rules:
-//  1. If seed starts with '#' it is treated as a hex color and validated
-//     strictly — an invalid character returns an error.
-//  2. If seed does NOT start with '#' but is exactly 6 characters of pure
-//     hex digits (0-9, a-f, A-F) it is also treated as a bare hex color.
-//  3. Everything else (arbitrary strings, wrong length, non-hex chars) is
-//     hashed deterministically with FNV-1a.
+// Disambiguation rules (in order):
+//  1. If seed starts with '#' → validate strictly as hex; error on bad chars.
+//  2. If seed is exactly 6 all-hex characters → treat as bare RRGGBB hex.
+//  3. If seed matches a CSS named color (case-insensitive) → use its hex.
+//  4. Everything else → deterministically hash with FNV-1a.
 func resolveHex(seed string) (string, error) {
 	if strings.HasPrefix(seed, "#") {
 		// Explicit hex intent — validate strictly.
@@ -61,6 +60,10 @@ func resolveHex(seed string) (string, error) {
 			return "", err
 		}
 		return "#" + strings.ToUpper(seed), nil
+	}
+	// CSS named color lookup (case-insensitive).
+	if h, ok := namedColor(seed); ok {
+		return h, nil
 	}
 	// Anything else: hash to a consistent hex color.
 	return hashStringToHex(seed), nil
