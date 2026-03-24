@@ -52,9 +52,24 @@ for _, seq := range palette.ANSI() {
 
 ---
 
+## Examples
+
+Three runnable examples live in the `examples/` directory:
+
+| Program | Run | What it shows |
+|---------|-----|---------------|
+| `examples/basic` | `go run ./examples/basic` | `From()` with hex and string seeds |
+| `examples/builder` | `go run ./examples/builder` | Every `Mood` × `Contrast` combo via the Builder |
+| `examples/outputs` | `go run ./examples/outputs` | All output formats: Hex, RGB, ANSI, At(), Preview() |
+
+---
+
+
+
 ## The 16 Slots
 
 Colors are indexed to match the standard 16-color terminal palette:
+
 
 | Index | Name         | Index | Name          |
 |-------|--------------|-------|---------------|
