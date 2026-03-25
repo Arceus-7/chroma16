@@ -1,4 +1,5 @@
 # chroma16
+[![codecov](https://codecov.io/gh/arceus-7/chroma16/graph/badge.svg)](https://app.codecov.io/github/Arceus-7/chroma16)
 [![Go Reference](https://pkg.go.dev/badge/github.com/arceus-7/chroma16.svg)](https://pkg.go.dev/github.com/arceus-7/chroma16)
 [![Go ≥1.21](https://img.shields.io/badge/go-%3E%3D1.21-blue)](https://go.dev/dl)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
