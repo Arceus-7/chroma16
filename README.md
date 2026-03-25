@@ -2,6 +2,7 @@
 
 [![Go ≥1.21](https://img.shields.io/badge/go-%3E%3D1.21-blue)](https://go.dev/dl)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/arceus-7/chroma16)](https://goreportcard.com/report/github.com/arceus-7/chroma16)
 
 Generate a complete, harmonious 16-color terminal palette from a single seed value — a hex color or any string.
 
