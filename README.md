@@ -62,6 +62,10 @@ Three runnable examples live in the `examples/` directory:
 | `examples/basic` | `go run ./examples/basic` | `From()` with hex and string seeds |
 | `examples/builder` | `go run ./examples/builder` | Every `Mood` × `Contrast` combo via the Builder |
 | `examples/outputs` | `go run ./examples/outputs` | All output formats: Hex, RGB, ANSI, At(), Preview() |
+| `examples/named` | `go run ./examples/named` | Using standard CSS named colors |
+| `examples/export` | `go run ./examples/export` | Generate configs for Alacritty, Kitty, Windows Terminal, and Xresources |
+| `examples/json` | `go run ./examples/json` | Marshalling and unmarshalling palettes to/from JSON |
+| `examples/lipgloss` | `go run -tags lipgloss ./examples/lipgloss` | Deep integration with `charmbracelet/lipgloss` styles |
 
 ---
 
