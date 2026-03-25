@@ -1,4 +1,3 @@
-//go:build lipgloss
 
 package main
 
